@@ -93,20 +93,175 @@ How we will Do It
 
 1. Create sample data:
 Products
+
+
+
+
+
 Locations
 Starting stock levels
 
-2. Design tables or classes to represent:
+3. Design tables or classes to represent:
 Transactions
 Products
 Locations
 Stock levels
-3. Write basic logic (or pseudocode) for:
+4. Write basic logic (or pseudocode) for:
 Adding a purchase order
 Recording a sale
 Moving stock
 Adjusting stock
-4. Test it out:
+5. Test it out:
 Simulate a few transactions (e.g., purchase 100 chairs, sell 20, transfer 30)
 
 Check if stock levels are correct after each one
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Abdulkerim Kedir 
+Vehicle Rental System
+
+What I'm Doing in This Project:
+
+In this project, I’m building a Vehicle Rental System that allows users (like customers or staff) to rent and return vehicles, track availability, and manage rental records. Think of it like a simplified version of how car rental services (e.g., Hertz or local rental shops) work.
+
+The main focus is to make sure the right vehicle is available, booked by the customer, and properly updated when returned.
+
+
+My Plan / Structure:
+
+1. Understand the Core Features I Need
+
+Here’s what the system must do at a minimum:
+
+Add and manage vehicles (cars, bikes, vans, etc.)
+
+Register customers
+
+Allow customers to rent available vehicles
+
+Track which vehicle is rented and by whom
+
+Handle returns and update vehicle status
+
+Calculate rental cost based on time/days
+
+Optional: generate receipts or reports
+
+2. Identify the Main Entities
+
+I’ll need to design tables or classes for:
+
+Vehicle: vehicle ID, type, brand, model, plate number, status (available/rented), price per hour/day
+
+Customer: customer ID, name, license number, contact info
+
+Rental Transaction: rental ID, vehicle ID, customer ID, rent date/time, return date/time, total cost, status
+
+
+
+How the System Should Work (Logic Plan):
+
+1. Add Vehicle:
+
+Admin adds vehicles to the system
+
+Sets rental price and availability status
+
+2. Register Customer:
+
+New customers are added to the system with details
+
+Existing customers can be searched by ID/license number
+
+3. Rent a Vehicle:
+
+System checks for available vehicles
+
+Customer selects one and sets rental period
+
+System updates vehicle status to "rented"
+
+Saves transaction record with date and time
+
+4. Return a Vehicle:
+
+On return, system calculates total duration
+
+Uses pricing to calculate the bill
+
+Updates vehicle status back to "available"
+
+Closes the rental transaction
+
+
+5. Track & View Rentals:
+
+Admin or user can view current rentals, completed rentals, or available vehicles
+
+
+
+How I’ll Build It (My Step-by-Step To-Do List):
+
+1. Create data structures or tables:
+
+Vehicle (info + availability)
+
+Customer (info)
+
+RentalTransaction (records rentals)
+
+
+2. Create functions / forms for:
+
+Adding/editing vehicles
+
+Registering customers
+
+Renting a vehicle (check availability, create transaction)
+
+Returning a vehicle (calculate cost, update status)
+
+Viewing records
+
+
+3. Handle validations:
+
+Don’t allow double-booking the same vehicle
+
+Don’t allow renting if customer or vehicle data is missing
+
+Validate date inputs and costs
+
+
+4. Testing:
+
+Try renting and returning multiple vehicles
+
+Check if the system updates availability correctly
+
+Make sure cost calculation works for different time periods
+---
+
+Extra Features (if I have time):
+
+Allow filtering vehicles by type (car, van, etc.)
+
+Add login roles (Admin vs Customer)
+
+Generate PDF receipt or report of rentals
+
+Alert if vehicle is overdue for return
