@@ -15,7 +15,7 @@
     <tr>
       <td>Abdulkerim Kedir</td>
       <td>abdu21k</td>
-      <td>Domain 4: Vehicle Rental System</td>
+      <td>Domain 7: Vehicle Rental System</td>
     </tr>
     <tr>
       <td>Mihrer Belete</td>
