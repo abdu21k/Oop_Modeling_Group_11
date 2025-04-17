@@ -25,7 +25,7 @@
     <tr>
       <td>Firew Kasa</td>
       <td>frew094991</td>
-      <td>Pending</td>
+      <td>Domain 4: Hotel Reservation System </td>
     </tr>
     <tr>
       <td>Mastewal Ayano</td>
