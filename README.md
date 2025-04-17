@@ -58,9 +58,8 @@
 
   <li>
     <strong>Individual_Work/</strong><br>
-    <em>Each member has a folder (e.g., <code>Abdulkerim_Kedir/</code>) containing:</em>
+    <em>Each member has a folder with thair name ex <code>Abdulkerim_Kedir/</code>) containing Their chosen individual domain's</em>
     <ul>
-      <li>Their chosen individual domain</li>
       <li>Domain description and solution</li>
       <li>UML diagrams</li>
       <li>Java implementation</li>
