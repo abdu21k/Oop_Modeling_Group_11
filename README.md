@@ -3,10 +3,10 @@
 <html>
 
 <body>
+  <h2>"This repository contains the OOP modeling assignment for Group
+11</h2>
+  <h3>Group Members & Individual Domains</h3>
 
-  <h2>Group Members & Individual Domains</h2>
-  <h3>"This repository contains the OOP modeling assignment for Group
-11</h3>
 
   <table border="1" cellpadding="8" cellspacing="0">
     <tr>
