@@ -52,8 +52,5 @@
       for handling sensitive user and trip data, and associations to model real-world relationships (e.g., one driver to many trips).</li>
 </ul>
 
-<p>
-  This version focuses on the core ride-matching functionality. More advanced features like GPS tracking, real-time chat, ratings, 
-  or automatic payments are not included for now but could be added in future extensions.
-</p>
+
 
