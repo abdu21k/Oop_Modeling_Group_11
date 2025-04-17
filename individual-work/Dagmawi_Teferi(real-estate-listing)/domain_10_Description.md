@@ -1,6 +1,6 @@
 <h1>Domain 10: Real Estate Listing Platform</h1>
 
-<h2>Problem Statement</h2>
+<h2>Project Description </h2>
 <p>
   This project focuses on modeling a real estate listing platform using object-oriented programming. 
   The idea is to build a system where users can register as buyers, sellers, or agents, and interact 
