@@ -1,9 +1,7 @@
 # Oop_Modeling_Group_11
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Group Members and Individual Domains</title>
-</head>
+
 <body>
 
   <h2>Group Members & Individual Domains</h2>
