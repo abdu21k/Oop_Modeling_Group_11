@@ -1,10 +1,11 @@
 # Oop_Modeling_Group_11
- Abdulkerim Kedir abdu21k
- Mihrer Belete  Mercymera
-Firew kasa   frew094991
-Mastewal Ayano   mayaye1   
-Dagmawi Teferi    dadu1161
-Title
+| Name                | Username     | Individual Domain                      
+
+ Abdulkerim Kedir    | abdu21k      | Domain 4: vehicle rental system          
+ Mihrer Belete       | mercymera    | Domain 5: Online Food Delivery System           
+ Firew Kasa          | frew094991   | [Member's Individual Domain]           
+ Mastewal Ayano      | mayaye1      | Domain 8: Inventory Management System           
+ Dagmawi Teferi      | dadu1161     | Domain 10: Real Estate Listing Platform
 
 3. Modeling Inventory Transactions and Movement
 
