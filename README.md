@@ -87,6 +87,30 @@
     </ul>
   </li>
 </ul>
+<h2>🧭 How to Navigate the Repository</h2>
+
+<ul>
+  <li>
+    <strong>Group Domains:</strong><br>
+    Open folders like <code>Domain_Ride_Sharing/</code>, <code>Domain_Healthcare_Management/</code>, and <code>Domain_Smart_Home_Automation/</code> to view the group-assigned domain modeling. These include the problem description, class design (tables), UML diagrams, Java code, and sample test cases.
+  </li>
+
+  <li>
+    <strong>Individual Work:</strong><br>
+    Go to <code>Individual_Work/</code> and select any member's folder (e.g., <code>Abdulkerim_Kedir/</code>) to find their individual domain work. Inside, you'll find the domain description, solution, diagrams, and code.
+  </li>
+
+  <li>
+    <strong>Documentation:</strong><br>
+    This folder contains group-level write-ups such as <code>Group_Report.md</code>, <code>Reflection.md</code>, and <code>Challenges.md</code> which summarize the team's overall efforts and reflections.
+  </li>
+
+  <li>
+    <strong>GitHub Workflow:</strong><br>
+    Inside <code>GitHub_Workflow/</code>, you'll find helpful guides like how to set up GitHub, make commits, and collaborate as a team using pull requests and branches.
+  </li>
+</ul>
+
 
 
 </body>
