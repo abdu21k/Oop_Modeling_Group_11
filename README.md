@@ -97,7 +97,7 @@
 
   <li>
     <strong>Individual Work:</strong><br>
-    Go to <code>Individual_Work/</code> and select any member's folder (e.g., <code>Abdulkerim_Kedir/</code>) to find their individual domain work. Inside, you'll find the domain description, solution, diagrams, and code.
+    Go to <code>Individual_Work/</code> and select any member's folder with thier name to find their individual domain work. Inside, you'll find the domain description, solution, diagrams, and code.
   </li>
 
   <li>
