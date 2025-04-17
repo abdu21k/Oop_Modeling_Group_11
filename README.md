@@ -1,11 +1,54 @@
 # Oop_Modeling_Group_11
-| Name                | Username     | Individual Domain                      
- 
- Abdulkerim Kedir    | abdu21k      | Domain 4: vehicle rental system          
- Mihrer Belete       | mercymera    | Domain 5: Online Food Delivery System           
- Firew Kasa          | frew094991   |         
- Mastewal Ayano      | mayaye1      | Domain 8: Inventory Management System           
- Dagmawi Teferi      | dadu1161     | Domain 10: Real Estate Listing Platform
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Individual Domains - Group Project</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9;">
+
+  <h2 style="color: #2c3e50;">👥 Group Members & Individual Domains</h2>
+
+  <table style="width: 100%; border-collapse: collapse; background-color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <thead style="background-color: #2c3e50; color: #fff;">
+      <tr>
+        <th style="padding: 12px; text-align: left;">Name</th>
+        <th style="padding: 12px; text-align: left;">Username</th>
+        <th style="padding: 12px; text-align: left;">Individual Domain</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Abdulkerim Kedir</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">abdu21k</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Domain 4: Vehicle Rental System</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Mihrer Belete</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">mercymera</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Domain 5: Online Food Delivery System</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Firew Kasa</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">frew094991</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd; color: #e74c3c;"><em>❗ Pending Domain Assignment</em></td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Mastewal Ayano</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">mayaye1</td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Domain 8: Inventory Management System</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px;">Dagmawi Teferi</td>
+        <td style="padding: 12px;">dadu1161</td>
+        <td style="padding: 12px;">Domain 10: Real Estate Listing Platform</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
+
 
 3. Modeling Inventory Transactions and Movement
 
