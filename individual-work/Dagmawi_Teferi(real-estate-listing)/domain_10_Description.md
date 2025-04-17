@@ -28,10 +28,3 @@
   seller or agent.
 </p>
 
-<h2>Notes</h2>
-<p>
-  Advanced features like payment integration, geolocation, or scheduling visits are outside the current 
-  scope but could be considered for future development. For now, the focus is on modeling the core 
-  functionality in a clean and organized way using OOP principles.
-</p>
-
