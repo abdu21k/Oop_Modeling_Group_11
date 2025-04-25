@@ -1,0 +1,69 @@
++----------------------+
+|      Vehicle         |
++----------------------+
+| - vehicleID : String |
+| - brand : String     |
+| - model : String     |
+| - category : String  |
+| - isAvailable : boolean |
+| - serviceExpiryDate : LocalDate |
++----------------------+
+| + showInfo()         |
+| + isAvailable()      |
+| + checkServiceExpiry() |
+| + setAvailability()  |
++----------------------+
+
+          |
+          |   1
+          | 
+          | (rents)
+          |
+          v
+
++----------------------+
+|      Rental          |
++----------------------+
+| - rentalID : String  |
+| - startDate : LocalDate |
+| - endDate : LocalDate   |
+| - isPaid : boolean   |
+| - vehicle : Vehicle  |
+| - customer : Customer|
++----------------------+
+| + createRental()     |
+| + returnVehicle()    |
+| + isPaid()           |
+| + showRentalInfo()   |
++----------------------+
+
+          ^          ^
+          |          |
+          |          |
+          |          |
+   (rented by)   (made by)
+          |          |
+          |          |
++----------------------+     +----------------------+
+|     Customer         |     |     Payment           |
++----------------------+     +----------------------+
+| - customerID : String |     | - paymentID : String  |
+| - name : String       |     | - amount : double     |
+| - licenseNumber : String|   | - isSuccessful : boolean |
+| - phoneNumber : String |    | - rentalID : String   |
++----------------------+     +----------------------+
+| + registerCustomer()  |     | + processPayment()    |
+| + viewCustomerInfo()  |     | + markAsPaid()         |
+|                       |     | + showPaymentStatus()  |
++----------------------+     +----------------------+
+
++----------------------+
+|         GPS          |
++----------------------+
+| - latitude : double  |
+| - longitude : double |
+| - vehicleID : String |
++----------------------+
+| + generateLocation() |
+| + showLocation()      |
++----------------------+
