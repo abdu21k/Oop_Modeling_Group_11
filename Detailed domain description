@@ -1,0 +1,13 @@
+1. Detailed Domain Description
+
+The Inventory Management System (IMS) is designed to handle core stock transactions—receiving, selling, transferring, and adjusting inventory. The goal is to ensure stock levels are up to date and accurate across all locations.
+
+The domain includes:
+
+Products: Items that are bought, sold, or stored.
+
+Locations: Physical areas where products are stored (warehouses, stores).
+
+Transactions: Any activity that changes stock quantity.
+
+Users (Optional): If roles or access control is needed.
