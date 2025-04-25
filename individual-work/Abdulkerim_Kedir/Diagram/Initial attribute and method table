@@ -1,0 +1,58 @@
+Initial Attribute Table
++------------------+---------------------+-------------+--------------+-----------------------------------------------------+
+| Class Name       | Attribute Name      | Data Type   | Visibility   | Rationale                                           |
++------------------+---------------------+-------------+--------------+-----------------------------------------------------+
+| Vehicle          | vehicleID           | String      | private      | Unique ID for each vehicle                         |
+|                  | brand               | String      | private      | Vehicle brand name                                 |
+|                  | model               | String      | private      | Vehicle model name                                 |
+|                  | category            | String      | private      | Type of vehicle (SUV, Sedan, etc.)                 |
+|                  | isAvailable         | boolean     | private      | Shows if vehicle is free for rent                  |
+|                  | serviceExpiryDate   | LocalDate   | private      | When the vehicle's service expires                 |
++------------------+---------------------+-------------+--------------+-----------------------------------------------------+
+| Customer         | customerID          | String      | private      | Unique ID for customer                             |
+|                  | name                | String      | private      | Customer's full name                               |
+|                  | licenseNumber       | String      | private      | Driving license number                             |
+|                  | phoneNumber         | String      | private      | Contact number for customer                        |
++------------------+---------------------+-------------+--------------+-----------------------------------------------------+
+| Rental           | rentalID            | String      | private      | Unique ID for rental                               |
+|                  | vehicle             | Vehicle     | private      | Vehicle that is being rented                       |
+|                  | customer            | Customer    | private      | Customer who made the rental                       |
+|                  | startDate           | LocalDate   | private      | Start date of rental                               |
+|                  | endDate             | LocalDate   | private      | End date of rental                                 |
+|                  | isPaid              | boolean     | private      | Checks if rental is paid                           |
++------------------+---------------------+-------------+--------------+-----------------------------------------------------+
+| Payment          | paymentID           | String      | private      | ID of the payment                                  |
+|                  | amount              | double      | private      | Amount paid                                        |
+|                  | isSuccessful        | boolean     | private      | Shows if payment worked                            |
+|                  | rentalID            | String      | private      | Links payment to rental                            |
++------------------+---------------------+-------------+--------------+-----------------------------------------------------+
+| GPS              | latitude            | double      | private      | Latitude of vehicle (random)                       |
+|                  | longitude           | double      | private      | Longitude of vehicle (random)                      |
+|                  | vehicleID           | String      | private      | Which vehicle the GPS belongs to                   |
++------------------+---------------------+-------------+--------------+-----------------------------------------------------+
+
+Initial Method Table
+---------------------
++------------------+------------------------+----------------+--------------+---------------------------------------------------+
+| Class Name       | Method Name            | Return Type    | Visibility   | Rationale                                         |
++------------------+------------------------+----------------+--------------+---------------------------------------------------+
+| Vehicle          | showInfo()             | void           | public       | Shows vehicle details                            |
+|                  | isAvailable()          | boolean        | public       | Returns if vehicle is available                  |
+|                  | checkServiceExpiry()   | boolean        | public       | Checks if service date is expired                |
+|                  | setAvailability()      | void           | public       | Changes availability status                      |
++------------------+------------------------+----------------+--------------+---------------------------------------------------+
+| Customer         | registerCustomer()     | void           | public       | Adds a new customer                              |
+|                  | viewCustomerInfo()     | void           | public       | Displays customer information                    |
++------------------+------------------------+----------------+--------------+---------------------------------------------------+
+| Rental           | createRental()         | void           | public       | Creates a new rental                             |
+|                  | returnVehicle()        | void           | public       | Marks vehicle as returned                        |
+|                  | isPaid()               | boolean        | public       | Tells if the rental is paid                      |
+|                  | showRentalInfo()       | void           | public       | Shows rental details                             |
++------------------+------------------------+----------------+--------------+---------------------------------------------------+
+| Payment          | processPayment()       | boolean        | public       | Simulates payment and returns success            |
+|                  | markAsPaid()           | void           | public       | Marks payment as done                            |
+|                  | showPaymentStatus()    | void           | public       | Displays payment result                          |
++------------------+------------------------+----------------+--------------+---------------------------------------------------+
+| GPS              | generateLocation()     | void           | public       | Makes random coordinates                         |
+|                  | showLocation()         | void           | public       | Displays current location                        |
++------------------+------------------------+----------------+--------------+---------------------------------------------------+
