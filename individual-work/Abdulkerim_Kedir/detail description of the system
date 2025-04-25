@@ -1,0 +1,122 @@
+Detail domain description
+  
+The Vehicle Rental System is a system that is going to be developed using java  with object oriented programming concepts.
+
+ Subdomains with their functions
+ Vehicle Management
+
+This is the part of the system that handles everything related to the vehicles available for rent. Each vehicle has important information such as:
+- A unique ID to identify it
+- Brand and model
+- Category (like SUV, Sedan, Hatchback, etc.)
+- Whether it is available or not
+- Service/maintenance expiry date
+When a new vehicle is added, it is assigned to a category and marked as available. The system checks if the vehicle is available before renting it out. It also checks if the vehicle is due for service based on the current date.
+
+ Example:
+- vehicleID: V001
+- brand: Toyota
+- model: Corolla
+- category: Sedan
+- isAvailable: true
+- serviceExpiryDate: 2017-09-10
+
+
+ Customer Management
+
+This part manages the people who rent vehicles. Every customer must register before making a booking. After registration, the customer is given a unique customer ID to help identify them easily in the system.
+
+Each customer record includes:
+- Customer ID
+- Full name
+- Driving license number (for verification)
+- Phone number
+
+Once registered, the customer can make bookings and view their rental history.
+
+Example:
+- customerID: C1001
+- name: Alemu Tesfaye.
+- licenseNumber: DL12345
+- phone: 0912345678
+
+Rental Booking System
+
+This is the main core of the system where a customer actually rents a vehicle. It connects a vehicle and a customer for a specific time period. When a booking is made:
+- The vehicle is marked as unavailable
+- The rental period (start and end date) is stored
+- The system checks if payment has been made
+- A rental ID is generated to track the booking
+
+When the rental is over, the customer returns the vehicle, and it becomes available again for others.
+
+ Example:
+- rentalID: R1002
+- vehicle: Toyota Corolla (V001)
+- customer: Alemu Tesfaye (C101)
+- startDate: 2017-08-10
+- endDate: 2017-09-10
+- isPaid: true
+
+
+Payment Processing
+
+This  handles the payment part of the system. It doesn’t use real money or connect to banks, but instead simulates payment success or failure for testing purposes. Before a booking is confirmed, payment must be processed.
+
+This helps in:
+- Preventing unpaid rentals
+- Recording if the customer paid or not
+- Linking payment status to each rental
+  
+The system can show a success message when payment goes through and a failure message if not.
+
+ Example :
+- If amount = 5000 → Payment successful
+- If amount = 0 or invalid → Payment failed
+
+
+ Service Expiry Checker
+
+Every vehicle needs regular maintenance or service. This module checks if the service date of a vehicle has expired. If the current date is later than the service expiry date, the vehicle is marked as not available for rental until it's updated.
+
+This makes the system safer by preventing customers from renting vehicles that might be unsafe or overdue for maintenance.
+
+For Example:
+- Service expiry: 2025-04-20
+- Today: 2025-04-25 → Service expired
+
+ GPS Tracking Simulation
+
+since we don't have the hardware tools to do if we want to build a system having a real time GPS tracking,The  system includes a  simulated GPS tracker. It doesn’t show real maps but instead generates random coordinates.
+
+During an active rental, the system can show the vehicle's current "location" in latitude and longitude format. This is useful to make the system feel more complete without using actual GPS hardware or APIs.
+
+ Example Output:
+- Vehicle V001 current location: Lat: 12.9716, Lon: 77.5946 or something like that.
+
+
+ How the System will Work
+  Admin adds vehicles and organizes them by category.
+ A customer registers in the system and receives a unique ID.
+ The customer selects a category and chooses an available vehicle.
+ The system checks:
+   - Is the vehicle available?
+   - Is the service still valid?
+   - Has the customer paid?
+If all conditions are met:
+   - A booking is created
+   - The vehicle is marked unavailable
+   - The customer can track the vehicle with simulated GPS
+ When the rental ends:
+   - The vehicle is returned
+   - Availability is updated
+   - The record is stored for history
+
+
+Technologies and Concepts to use
+
+-Java OOP: Objects and classes are used to represent real things (vehicles, customers, etc.)
+- Java Collections: Data like vehicle and customer lists are stored using `ArrayList
+- Date Handling: Uses `LocalDate` from java.time to compare dates
+- Console-based UI: The system runs in the terminal with a simple menu
+- Simulation: GPS and payment are simulated to avoid complexity
