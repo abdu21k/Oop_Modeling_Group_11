@@ -1,0 +1,14 @@
+initial object identification table 
+
+
++------------------+----------------------------------------------------------------+
+|  object name    |  description                                                    |                
++------------------------------------+-----------------------------------------------+
+| product       | represents an item with details like name,price,and catagory     | 
++-----------------------------------------------------------------------------------+
+|location       |stores where products are kept                                     |
++------------------------------------------------------------------------------------+
+| inventory tranaction| logs each transaction(purchase,sale,transfer,adjustment).    |
++------------------------------------------------------------------------------------+
+| stock level      | tracks quality of each product at each location.                 |
++-------------------------------------------------------------------------------------+
