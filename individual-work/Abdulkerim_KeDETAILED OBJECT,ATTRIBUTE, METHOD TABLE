@@ -1,0 +1,140 @@
+               DETAIL OBJECT TABLE
+                 
+┌────────────────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│    Object Name     │                                             Description                                                    │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     Vehicle        │ Represents each vehicle that can be rented. Stores ID, model, brand, type, status (available/rented),     │
+│                    │ and location details.                                                                                      │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     Customer       │ Represents a user who rents vehicles. Stores name, contact details, and driver’s license number.          │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     Rental         │ Represents a rental transaction. Includes rental ID, vehicle ID, customer ID, dates, and total cost.      │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     Payment        │ Manages payments for rentals. Stores amount, method (cash/card), status (paid/unpaid), and payment date.  │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     Service        │ Tracks vehicle maintenance. Includes service ID, vehicle ID, service date, and description of issues/fixes.│
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│       GPS          │ Tracks real-time vehicle data. Includes coordinates, speed, and fuel level of the vehicle.                │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     Location       │ Represents pickup/drop-off branches. Stores branch ID, name, address, and list of vehicles at that branch.│
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│   UserAccount      │ Manages system login and roles. Stores username, password, user type (admin, staff, customer).            │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     Booking        │ Handles vehicle reservations before rental. Stores booking ID, customer ID, vehicle ID, and schedule.     │
+├────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│  LoyaltyProgram    │ Manages reward points and benefits for repeat customers. Tracks points, discounts, and eligible offers.   │
+└────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+                                                    DETAIL ATTRIBUTE TABLE
+                                               
+
+```
+┌────────────────────┬───────────────────────────────┬──────────────┬────────────┬────────────────────────────────────────────────────────┐
+│     Class Name     │         Attribute Name        │    Type      │ Visibility │                    Rationale                            │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Vehicle       │ vehicleID                     │ String       │ private     │ Unique ID for each vehicle in the system                │
+│                    │ model                         │ String       │ private     │ The model name of the vehicle                           │
+│                    │ brand                         │ String       │ private     │ The manufacturer of the vehicle                         │
+│                    │ type                          │ String       │ private     │ Type like car, van, truck, etc.                         │
+│                    │ isAvailable                   │ boolean      │ private     │ Indicates if the vehicle is available to rent           │
+│                    │ currentLocation               │ String       │ private     │ Location/branch where the vehicle is currently located  │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│     Customer       │ customerID                    │ String       │ private     │ Unique ID assigned to each customer                     │
+│                    │ name                          │ String       │ private     │ Full name of the customer                               │
+│                    │ phone                         │ String       │ private     │ Contact number of the customer                          │
+│                    │ email                         │ String       │ private     │ Email address used for communication                    │
+│                    │ licenseNumber                 │ String       │ private     │ Driving license number for validation                   │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Rental        │ rentalID                      │ String       │ private     │ Unique ID for rental transaction                        │
+│                    │ vehicleID                     │ String       │ private     │ Reference to the rented vehicle                         │
+│                    │ customerID                    │ String       │ private     │ Reference to the customer                               │
+│                    │ startDate                     │ Date         │ private     │ Rental start date                                       │
+│                    │ endDate                       │ Date         │ private     │ Rental end/return date                                  │
+│                    │ totalCost                     │ double       │ private     │ Total cost of the rental period                         │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Payment       │ paymentID                     │ String       │ private     │ Unique ID for the payment record                        │
+│                    │ rentalID                      │ String       │ private     │ Rental related to this payment                          │
+│                    │ amount                        │ double       │ private     │ Amount paid for the rental                              │
+│                    │ paymentMethod                 │ String       │ private     │ Method used: card, cash, online                         │
+│                    │ paymentStatus                 │ String       │ private     │ Paid / Pending / Failed                                 │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Service       │ serviceID                     │ String       │ private     │ Unique ID for the service record                        │
+│                    │ vehicleID                     │ String       │ private     │ The vehicle that was serviced                          │
+│                    │ serviceDate                   │ Date         │ private     │ When the service took place                             │
+│                    │ description                   │ String       │ private     │ Details about the service or repair                     │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│        GPS         │ vehicleID                     │ String       │ private     │ The vehicle being tracked                               │
+│                    │ latitude                      │ double       │ private     │ Real-time latitude coordinate                           │
+│                    │ longitude                     │ double       │ private     │ Real-time longitude coordinate                          │
+│                    │ fuelLevel                     │ double       │ private     │ Current fuel level                                      │
+│                    │ speed                         │ double       │ private     │ Current speed of the vehicle                            │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Location      │ locationID                    │ String       │ private     │ Unique ID for each location                             │
+│                    │ name                          │ String       │ private     │ Name of the branch or station                           │
+│                    │ address                       │ String       │ private     │ Physical address of the branch                          │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│    UserAccount     │ username                      │ String       │ private     │ Unique username for login                               │
+│                    │ password                      │ String       │ private     │ Password used for authentication                        │
+│                    │ role                          │ String       │ private     │ User role: admin / staff / customer                     │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Booking       │ bookingID                     │ String       │ private     │ Unique ID for the booking                               │
+│                    │ vehicleID                     │ String       │ private     │ Reserved vehicle reference                              │
+│                    │ customerID                    │ String       │ private     │ Customer making the booking                             │
+│                    │ bookingDate                   │ Date         │ private     │ Date when booking was made                              │
+│                    │ reservedDate                  │ Date         │ private     │ Date when the vehicle is scheduled for pickup           │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│  LoyaltyProgram    │ programID                     │ String       │ private     │ Unique ID for each loyalty record                       │
+│                    │ customerID                    │ String       │ private     │ Customer eligible for the program                       │
+│                    │ points                        │ int          │ private     │ Reward points collected                                 │
+│                    │ tierLevel                     │ String       │ private     │ Level: Basic, Silver, Gold, Platinum                    │
+└────────────────────┴───────────────────────────────┴──────────────┴────────────┴────────────────────────────────────────────────────────┘
+                                                      DETAIL METHOD TABLE
+                                             
+┌────────────────────┬───────────────────────────────┬──────────────┬────────────┬────────────────────────────────────────────────────────┐
+│     Class Name     │          Method Name          │ Return Type  │ Visibility │                    Rationale                            │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Vehicle       │ getAvailabilityStatus()       │ boolean      │ public     │ Checks if the vehicle is currently available            │
+│                    │ updateLocation(String loc)    │ void         │ public     │ Updates the vehicle’s current location                  │
+│                    │ toggleAvailability()          │ void         │ public     │ Switches the availability status (rented/returned)      │
+│                    │ displayInfo()                 │ void         │ public     │ Displays all vehicle details in a simple format         │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│     Customer       │ updateContact(String phone)   │ void         │ public     │ Updates the contact number of the customer              │
+│                    │ getDetails()                  │ String       │ public     │ Returns full customer details as a single string        │
+│                    │ verifyLicense()               │ boolean      │ public     │ Confirms license format or match                        │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Rental        │ calculateCost()               │ double       │ public     │ Calculates cost using duration and rate                 │
+│                    │ extendRental(Date newEnd)     │ void         │ public     │ Extends the current rental to a new end date            │
+│                    │ getRentalInfo()               │ String       │ public     │ Returns full rental data including dates and customer   │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Payment       │ processPayment()              │ boolean      │ public     │ Processes and confirms if payment was successful        │
+│                    │ checkPaymentStatus()          │ String       │ public     │ Returns a string like "Paid", "Pending" etc.            │
+│                    │ refund()                      │ boolean      │ public     │ Handles refund logic in case of early cancellation      │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Service       │ recordService()               │ void         │ public     │ Stores new service record for vehicle maintenance       │
+│                    │ getServiceHistory()           │ String       │ public     │ Shows all previous services for a vehicle               │
+│                    │ isServiceDue()                │ boolean      │ public     │ Checks if the service is overdue                        │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│        GPS         │ updateCoordinates(lat, lon)   │ void         │ public     │ Updates the current GPS coordinates of the vehicle      │
+│                    │ getCurrentSpeed()             │ double       │ public     │ Returns how fast the vehicle is going currently         │
+│                    │ getFuelStatus()               │ double       │ public     │ Checks the remaining fuel or battery                    │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Location      │ addVehicle(String vehicleID)  │ void         │ public     │ Adds vehicle to this location                           │
+│                    │ removeVehicle(String vehicleID)│ void        │ public     │ Removes vehicle from this location                      │
+│                    │ getAllVehicles()              │ List<String> │ public     │ Returns list of all vehicle IDs at the location         │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│    UserAccount     │ login(username, password)     │ boolean      │ public     │ Checks if credentials match stored ones                 │
+│                    │ resetPassword(String newPw)   │ void         │ public     │ Changes account password securely                       │
+│                    │ getRole()                     │ String       │ public     │ Returns if the user is Admin, Customer, etc.            │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│      Booking       │ reserveVehicle()              │ boolean      │ public     │ Reserves vehicle for customer at specific time          │
+│                    │ cancelBooking()               │ boolean      │ public     │ Cancels the booking and releases the vehicle            │
+│                    │ viewBooking()                 │ String       │ public     │ Returns full booking details                            │
+├────────────────────┼───────────────────────────────┼──────────────┼────────────┼────────────────────────────────────────────────────────┤
+│  LoyaltyProgram    │ addPoints(int points)         │ void         │ public     │ Adds points after completed rentals                     │
+│                    │ checkPoints()                 │ int          │ public     │ Returns current reward points                           │
+│                    │ applyDiscount()               │ double       │ public     │ Calculates discount amount from points                  │
+└────────────────────┴───────────────────────────────┴──────────────┴────────────┴────────────────────────────────────────────────────────┘
+
+
+
+  
