@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Healthcare Management System - OOP Design</title></head>
 <body>
 <h1>Healthcare Management System - Object-Oriented Design</h1>
 <p>We consider a set of classes typical for a Healthcare Management System. These include user roles (User, Patient, Doctor, Admin) and operational entities (Appointment, MedicalRecord, TimeSlot):contentReference[oaicite:0]{index=0}. Each class is defined with its attributes and methods below, illustrating how they model the system. Key class relationships and OOP design principles (encapsulation, inheritance, abstraction, association) are then discussed.</p>
