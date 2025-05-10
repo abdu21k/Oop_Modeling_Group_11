@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Real Estate Listing Platform – OOP Design</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h2 { color: #2e6da4; }
-    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f2f2f2; }
-  </style>
-</head>
+
 <body>
 
 <h1>Domain 10: Real Estate Listing Platform</h1>
