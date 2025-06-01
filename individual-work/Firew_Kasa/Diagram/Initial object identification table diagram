@@ -1,1 +1,10 @@
 
+
+| Class Name      | Responsibility / Role                          | Attributes                                            | Methods                                                                 |
+|----------------------|------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------------------------|
+| HotelManager**     | Manages hotel data and room registry                 | hotelName, roomList (ArrayList of Room)                    | addRoom(), listAvailableRooms(), findRoomByType()                           |
+| CustomerManager**  | Manages registered customers                         | customerList (ArrayList of Customer)                       | addCustomer(), searchCustomerByID(), updateCustomerInfo()                  |
+| ReservationManager** | Handles reservation creation and management        | reservationList (ArrayList of Reservation)                 | createReservation(), cancelReservation(), listReservations()               |
+| PaymentManager**   | Manages and tracks payments                          | paymentRecords (ArrayList of Payment)                      | processPayment(), markAsPaid(), showPaymentStatus()                        |
+| RoomManager**      | Controls room availability and booking               | roomList (ArrayList of Room)                               | checkAvailability(), bookRoom(), releaseRoom()                              |
+| MainSystem**       | Main controller of the system                        | (No attributes)                                             | showMenu(), handleUserInput(), callOtherModules()                          |
