@@ -1,1 +1,51 @@
 
+While developing the Hotel Reservation System, several challenges can arise during coding, database design, and user interface implementation. Below are the most common issues faced — along with practical solutions applied to ensure the system runs smoothly and efficiently.
+
+
+ Double Booking of Rooms
+
+Problem:
+When multiple users try to book the same room for overlapping dates, it can result in double bookings — frustrating both the guests and the staff.
+
+Solution:
+We implemented a reliable room availability check that runs just before finalizing anyic
+
+Problem:
+Sometimes, rooms might appear available when they are already booked — or vice versa —due to poor logic.
+
+Solution:
+We carefully designed the room availability logic to account for all overlaps in booking dates. This ensures accurate room status by checking that new bookings do not overlap with existing ones in the system.
+         Billing Inaccuracies
+
+Problem:
+Incorrect calculation of total costs due to missing rates, discounts, or stay durations can lead to customer dissatisfaction.
+
+Solution:
+Billing is calculated dynamically using up-to-date room pricing, number of nights, and any applicable discounts or taxes. Invoice generation is automated to reduce errors and ensure clarity for both staff and guests.
+
+
+ Security Vulnerabilities
+
+Problem:
+Storing passwords in plain text or allowing unauthorized access can compromise system security.
+
+Solution:
+All passwords are securely hashed using industry-standard algorithms
+If one staff member updates a room's status, others might not see the change immediately, leading to confusion.
+
+Solution:
+The system is designed to reflect updates instantly by refreshing room data after each booking or check-in/out. For web applications, Ajax is used to update room status in real time without reloading the page.
+
+
+App Crashes or Unhandled Errors
+
+Problem
+Crashes may occur due to null inputs, database disconnections, or unhandled edge cases.
+
+Solution:
+All critical operations are wrapped in try-catch blocks with helpful error messages. Unexpected errors are logged, and users receive clean, understandable feedback instead of facing a system crash.
+
+
+Infle
+Problem
+Users and staff need the ability to make changes to , but systems often don’t allow edits or cancellations once a booking is made.
