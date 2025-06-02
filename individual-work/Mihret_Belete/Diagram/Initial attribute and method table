@@ -1,0 +1,91 @@
+## 📊 Initial Attributes and Methods Table
+
+### `User` (abstract)
+
+| Attribute | Type   | Description           |
+|-----------|--------|-----------------------|
+| id        | String | Unique user ID        |
+| name      | String | User's full name      |
+| email     | String | Email address         |
+
+| Method            | Return Type | Description                     |
+|-------------------|-------------|---------------------------------|
+| showDashboard()   | void        | Displays role-specific dashboard |
+
+---
+
+### `Customer` (extends `User`)
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| Inherits from `User` |
+
+| Method            | Return Type | Description              |
+|-------------------|-------------|--------------------------|
+| showDashboard()   | void        | Displays customer view   |
+
+---
+
+### `Restaurant` (extends `User`)
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| Inherits from `User` |
+
+| Method            | Return Type | Description                |
+|-------------------|-------------|----------------------------|
+| showDashboard()   | void        | Displays restaurant view   |
+
+---
+
+### `DeliveryPerson` (extends `User`)
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| Inherits from `User` |
+
+| Method            | Return Type | Description                |
+|-------------------|-------------|----------------------------|
+| showDashboard()   | void        | Displays delivery view     |
+
+---
+
+### `MenuItem`
+
+| Attribute | Type    | Description         |
+|-----------|---------|---------------------|
+| name      | String  | Name of menu item   |
+| price     | double  | Price of the item   |
+
+| Method | Return Type | Description        |
+|--------|-------------|--------------------|
+| N/A    |             | Used in `Order`    |
+
+---
+
+### `Order`
+
+| Attribute   | Type        | Description             |
+|-------------|-------------|-------------------------|
+| orderId     | int         | Unique order ID         |
+| customer    | Customer    | Customer who ordered    |
+| restaurant  | Restaurant  | Restaurant fulfilling   |
+| item        | MenuItem    | Menu item ordered       |
+| status      | String      | Order status            |
+
+| Method                     | Return Type | Description                 |
+|----------------------------|-------------|-----------------------------|
+| trackOrder()               | void        | Shows order status          |
+| updateStatus(status: String)| void       | Updates the order status    |
+
+---
+
+### `Payment`
+
+| Attribute | Type | Description        |
+|-----------|------|--------------------|
+| (optional attributes like amount) |
+
+| Method                          | Return Type | Description                |
+|----------------------------------|-------------|----------------------------|
+| processPayment(customer, amount)| void        | Handles payment logic      |
