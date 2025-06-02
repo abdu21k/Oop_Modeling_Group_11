@@ -1,0 +1,29 @@
+# Challenges Faced During Development
+
+## 1. Designing the Class Structure
+- Identifying essential classes such as `Product` and `InventorySystem`.
+- Deciding how to store and manage the list of products dynamically.
+
+## 2. Handling User Input
+- Managing input with `Scanner`, especially mixing `nextLine()` with `nextInt()`.
+- Preventing the program from skipping inputs or crashing due to unexpected input.
+
+## 3. Validating Input
+- Ensuring valid product IDs are entered before processing purchase or sale.
+- Preventing users from entering negative or zero quantities.
+
+## 4. Managing Stock Correctly
+- Updating product quantities accurately during purchase and sale operations.
+- Handling cases where users try to sell more items than are available.
+
+## 5. Keeping the Code Simple
+- Avoiding complex features to maintain clarity and beginner-friendliness.
+- Ensuring the logic is easy to follow, especially in the console menu.
+
+## 6. No Persistent Storage
+- Since data is stored only in memory (`ArrayList`), all products are lost after exiting.
+- Made it necessary to fully test during a single run.
+
+## 7. Debugging Logic Errors
+- Fixing issues where product selection or quantity updates didn’t work as expected.
+- Verifying that all user inputs correctly trigger the right system behavior.
