@@ -1,7 +1,7 @@
 
-# Hotel Reservation System - Initial Attribute and Method Tables
+ Hotel Reservation System - Initial Attribute and Method Tables
 
-## Initial Attribute Table
+ Initial Attribute Table
 
 | Class Name    | Attribute Name | Data Type         | Visibility | Rationale                                  |
 |---------------|----------------|-------------------|------------|---------------------------------------------|
@@ -28,7 +28,7 @@
 | HotelManager  | rooms          | ArrayList<Room>   | private    | Collection of hotel rooms                   |
 | MainSystem    | (none)         | —                 | —          | Main logic controller (no attributes)       |
 
-## Initial Method Table
+Initial Method Table
 
 | Class Name    | Method Name           | Return Type | Visibility | Rationale                                             |
 |---------------|------------------------|-------------|------------|--------------------------------------------------------|
