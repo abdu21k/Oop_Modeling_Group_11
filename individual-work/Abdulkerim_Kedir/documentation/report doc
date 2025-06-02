@@ -1,0 +1,54 @@
+📌 Vehicle Rental System – Project Report
+Course Title: [Your Course Name]
+Instructor: [Instructor's Name]
+Student Name: [Your Name]
+Submission Date: [Date]
+
+1️⃣ Introduction
+The Vehicle Rental System is a project developed to allow people to rent vehicles efficiently. The system is built using Java and follows basic object-oriented programming (OOP) concepts to manage vehicles, customers, and rentals. The project aims to create a simple but functional rental service, where users can register, book vehicles, and view availability through a console-based application.
+As a student working on this project, I tried to apply what I learned in class, but I faced several challenges while structuring the code and organizing the workflow properly.
+
+2️⃣ Objectives of the System
+The main purpose of the system is to:
+✅ Enable vehicle rentals by keeping track of available cars
+✅ Store customer information securely for proper rental management
+✅ Process rentals correctly, ensuring that only available vehicles are rented
+✅ Improve code readability using beginner-friendly formatting
+Initially, I wanted to implement GPS tracking, but due to hardware requirements, I couldn’t add that feature.
+
+3️⃣ System Features
+🔹 View Available Vehicles – Displays all cars that can be rented
+🔹 Customer Registration – Stores user details like name, license, and phone number
+🔹 Process Rentals – Allows renting of a vehicle while updating its availability
+🔹 Structured Console Interaction – Uses color-coded output to enhance readability
+I designed the system in a way that it would be easy to understand and follow the instructor’s rules.
+4️⃣ Technologies Used
+🟢 Programming Language: Java
+🟢 Development Environment: VS Code, IntelliJ IDEA
+🟢 Version Control: GitHub (which I had to learn from YouTube tutorials)
+🟢 Data Structures: ArrayLists (for storing vehicles, customers, and rentals)
+At first, I struggled with GitHub, but after watching tutorials and practicing, I understood how repositories and commits work.
+
+5️⃣ Challenges Faced
+Developing the system was not easy, especially since I had to learn new concepts while applying basic programming skills. Here are the main challenges I faced:
+🔹 Learning GitHub – I had no prior knowledge, so I had to watch several tutorials
+🔹 Structuring the project – I didn’t know how to combine different components into a real-world system
+🔹 GPS Tracking Limitations – I couldn’t implement it due to hardware requirements
+🔹 Code Organization – Writing a clean, structured code format was difficult in the beginning
+Despite these obstacles, I kept improving the project step by step.
+
+6️⃣ Project Outcomes & Achievements
+✅ Successfully built a rental system following proper OOP principles
+✅ Improved understanding of GitHub and version control basics
+✅ Created a well-structured code with color formatting for readability
+✅ Learned how to manage multiple objects (vehicles, customers, rentals)
+Although GPS tracking remains a future challenge, the current system works efficiently based on the given requirements.
+
+7️⃣ Future Enhancements
+💡 Adding payment integration for a complete rental experience
+💡 Implementing GPS tracking using external APIs
+💡 Building a graphical interface (GUI) for a more user-friendly design
+These improvements could make the system more realistic and professional.
+8️⃣ Conclusion
+Developing the Vehicle Rental System was a great learning experience, even though I faced difficulties along the way. The project helped me improve my understanding of Java, GitHub, object-oriented programming, and real-world software development principles. While some features like GPS tracking were not implemented, the system meets the requirements set by the instructor and provides basic rental functionalities. 🚀
+
