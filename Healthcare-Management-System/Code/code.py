@@ -180,8 +180,8 @@ public class HealthManagementSystem {
 
     public static void main(String[] args) {
         // Sample Data
-        doctors.add(new Doctor(1, "Dr. John Doe", "Cardiology", "1234567890", "City Hospital", 10, true));
-        patients.add(new Patient(1, "Alice Smith", 30, "Female", "0987654321", "123 Main St", "No prior issues", "None", 1));
+        doctors.add(new Doctor(1, "Dr. abreham  abebee", "Cardiology", "1234567890", "City Hospital", 10, true));
+        patients.add(new Patient(1, "Ali aragaw", 30, "Female", "0987654321", "123 Main St", "No prior issues", "None", 1));
         
         // Testing System Functionality
         Feedback feedback = new Feedback(1, 1, 5.0, "Excellent service!");
