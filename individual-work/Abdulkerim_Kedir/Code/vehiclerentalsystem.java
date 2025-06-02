@@ -67,7 +67,7 @@ class Rental {
         this.vehicle = vehicle;
         this.customer = customer;
         this.days = days;
-        this.vehicle.toggleAvailability(); // mark as rented
+        this.vehicle.toggleAvailability();
     }
 
     public double calculateCost() {
@@ -84,7 +84,8 @@ class Rental {
     }
 }
 
-// Main system class
+
+
 public class VehicleRentalSystem {
     static Scanner input = new Scanner(System.in);
     static ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -92,7 +93,6 @@ public class VehicleRentalSystem {
     static ArrayList<Rental> rentals = new ArrayList<>();
 
     public static void main(String[] args) {
-        // Sample data
         vehicles.add(new Vehicle("V001", "Toyota Corolla"));
         vehicles.add(new Vehicle("V002", "Honda Civic"));
         vehicles.add(new Vehicle("V003", "Hyundai Elantra"));
@@ -180,17 +180,17 @@ public class VehicleRentalSystem {
 
         System.out.print("Enter number of days to rent: ");
         int days = input.nextInt();
-
         String rentalId = "R" + (rentals.size() + 1);
-        Rental newRental = new Rental(rentalId, foundVehicle, foundCustomer, days);
-        rentals.add(newRental);
-        System.out.println("Rental successful!");
-        newRental.printReceipt();
+
+        Rental rental = new Rental(rentalId, foundVehicle, foundCustomer, days);
+        rentals.add(rental);
+        System.out.println("\nRental Successful! Receipt:");
+        rental.printReceipt();
     }
 
     static void viewRentals() {
         if (rentals.isEmpty()) {
-            System.out.println("No rentals recorded yet.");
+            System.out.println("\nNo rentals yet.");
             return;
         }
         System.out.println("\n--- All Rentals ---");
