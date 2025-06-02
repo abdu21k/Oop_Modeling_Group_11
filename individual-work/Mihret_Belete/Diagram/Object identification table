@@ -1,0 +1,12 @@
+## 📘 Object Identification Table
+
+| **Object Name**   | **Real-World Entity**           | **Responsibilities**                                                                 |
+|-------------------|----------------------------------|----------------------------------------------------------------------------------------|
+| `Customer`        | Food ordering user               | - Browse menu<br>- Place orders<br>- Make payments<br>- Track deliveries              |
+| `Restaurant`      | Restaurant staff/system          | - Manage menu<br>- Receive and prepare orders<br>- Update order status                |
+| `DeliveryPerson`  | Delivery staff                   | - Accept delivery assignments<br>- Track route<br>- Mark orders as delivered          |
+| `MenuItem`        | Dish/Food item                   | - Represent food with name and price<br>- Add/edit by restaurants                     |
+| `Order`           | Customer order                   | - Maintain order details<br>- Link customer, restaurant, menu item<br>- Track status  |
+| `Payment`         | Payment process                  | - Handle payment logic (credit, wallet, cash)<br>- Validate transaction               |
+| `User` (abstract) | Generic system user              | - Base class for shared attributes (ID, name, email)<br>- Provide common functionality|
+| `Admin` *(optional)* | System administrator        | - Manage all users, orders, payments, etc. *(Optional for future expansion)*          |  
