@@ -1,16 +1,41 @@
 import java.util.ArrayList;
 
-// Driver Class
-class Driver {
+// Abstract Class: Person (Common properties for Driver and Passenger)
+abstract class Person {
+    private String name, phoneNumber;
+
+    public Person(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getName() { return name; }
+    public String getPhoneNumber() { return phoneNumber; }
+
+    public abstract void displayDetails();
+}
+
+// Interface for Transport Services
+interface TransportService {
+    void startRide();
+    void completeRide();
+}
+
+// Interface for Payment System
+interface PaymentSystem {
+    void processPayment();
+}
+
+// Driver Class (Inherits Person & Implements TransportService)
+class Driver extends Person implements TransportService {
     private int driverId;
-    private String name, phoneNumber, licenseNumber, currentLocation;
+    private String licenseNumber, currentLocation;
     private double rating;
     private boolean availability;
 
     public Driver(int driverId, String name, String phoneNumber, String licenseNumber, double rating, boolean availability, String currentLocation) {
+        super(name, phoneNumber);
         this.driverId = driverId;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
         this.licenseNumber = licenseNumber;
         this.rating = rating;
         this.availability = availability;
@@ -18,59 +43,47 @@ class Driver {
     }
 
     public int getDriverId() { return driverId; }
-    public String getName() { return name; }
-    public String getPhoneNumber() { return phoneNumber; }
     public String getLicenseNumber() { return licenseNumber; }
     public double getRating() { return rating; }
     public boolean isAvailable() { return availability; }
-    public void updateLocation(String location) { this.currentLocation = location; }
+
+    @Override
+    public void startRide() {
+        System.out.println("Driver " + getName() + " has started the ride.");
+    }
+
+    @Override
+    public void completeRide() {
+        System.out.println("Driver " + getName() + " has completed the ride.");
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("Driver ID: " + driverId + " | Name: " + getName() + " | Rating: " + rating);
+    }
 }
 
-// Passenger Class
-class Passenger {
+// Passenger Class (Inherits Person)
+class Passenger extends Person {
     private int passengerId;
-    private String name, phoneNumber, paymentMethod;
+    private String paymentMethod;
     private double rating;
 
     public Passenger(int passengerId, String name, String phoneNumber, String paymentMethod, double rating) {
+        super(name, phoneNumber);
         this.passengerId = passengerId;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
         this.paymentMethod = paymentMethod;
         this.rating = rating;
     }
 
     public int getPassengerId() { return passengerId; }
-    public String getName() { return name; }
-    public String getPhoneNumber() { return phoneNumber; }
     public String getPaymentMethod() { return paymentMethod; }
     public double getRating() { return rating; }
-}
 
-// Vehicle Class
-class Vehicle {
-    private int vehicleId;
-    private String licensePlate, brand, model, color, status;
-    private int seatingCapacity;
-
-    public Vehicle(int vehicleId, String licensePlate, String brand, String model, String color, int seatingCapacity, String status) {
-        this.vehicleId = vehicleId;
-        this.licensePlate = licensePlate;
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.seatingCapacity = seatingCapacity;
-        this.status = status;
+    @Override
+    public void displayDetails() {
+        System.out.println("Passenger ID: " + passengerId + " | Name: " + getName() + " | Rating: " + rating);
     }
-
-    public int getVehicleId() { return vehicleId; }
-    public String getLicensePlate() { return licensePlate; }
-    public String getBrand() { return brand; }
-    public String getModel() { return model; }
-    public String getColor() { return color; }
-    public int getSeatingCapacity() { return seatingCapacity; }
-    public String getStatus() { return status; }
-    public void setAvailability(String status) { this.status = status; }
 }
 
 // Ride Class
@@ -101,8 +114,8 @@ class Ride {
     public void updateRideStatus(String status) { this.status = status; }
 }
 
-// Payment Class
-class Payment {
+// Payment Class (Implements PaymentSystem)
+class Payment implements PaymentSystem {
     private int paymentId, rideId, passengerId;
     private double amount;
     private String paymentMethod, status;
@@ -122,7 +135,11 @@ class Payment {
     public double getAmount() { return amount; }
     public String getPaymentMethod() { return paymentMethod; }
     public String getStatus() { return status; }
-    public boolean processPayment() { return status.equals("Paid"); }
+
+    @Override
+    public void processPayment() {
+        System.out.println("Processing payment for ride ID: " + rideId + " | Amount: $" + amount);
+    }
 }
 
 // Feedback Class
@@ -151,7 +168,6 @@ class Feedback {
 public class RideSharingSystem {
     private static ArrayList<Driver> drivers = new ArrayList<>();
     private static ArrayList<Passenger> passengers = new ArrayList<>();
-    private static ArrayList<Vehicle> vehicles = new ArrayList<>();
     private static ArrayList<Ride> rides = new ArrayList<>();
     private static ArrayList<Payment> payments = new ArrayList<>();
     private static ArrayList<Feedback> feedbacks = new ArrayList<>();
@@ -160,8 +176,7 @@ public class RideSharingSystem {
         // Sample Data
         drivers.add(new Driver(1, "John Doe", "1234567890", "DL1234", 4.8, true, "City Center"));
         passengers.add(new Passenger(1, "Alice Smith", "0987654321", "Card", 4.9));
-        vehicles.add(new Vehicle(1, "ABC-123", "Toyota", "Corolla", "Blue", 4, "Active"));
-        
+
         // Testing Ride Booking
         Ride ride = new Ride(1, 1, 1, "Airport", "Downtown", 15.5, 25.0, "Completed");
         rides.add(ride);
@@ -172,7 +187,10 @@ public class RideSharingSystem {
         Feedback feedback = new Feedback(1, 1, 1, 5.0, "Great ride!");
         feedbacks.add(feedback);
 
-        feedback.submitFeedback();
+        drivers.get(0).startRide();
+        drivers.get(0).completeRide();
+        payments.get(0).processPayment();
+        feedbacks.get(0).submitFeedback();
 
         System.out.println("Ride-Sharing System is Fully Functional!");
     }
