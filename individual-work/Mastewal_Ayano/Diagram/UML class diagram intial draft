@@ -1,0 +1,27 @@
++----------------------------+
+|         Product           |
++----------------------------+
+| - id: int                 |
+| - name: String            |
+| - quantity: int           |
++----------------------------+
+| + Product(id, name, qty)  |
+| + toString(): String      |
++----------------------------+
+
+           ▲
+           |
+           | uses
+           |
++-------------------------------------------+
+|     InventoryManagementSystem             |
++-------------------------------------------+
+| - products: ArrayList<Product>            |
+| - nextId: int                             |
++-------------------------------------------+
+| + main(String[] args): void               |
+| + addProduct(Scanner): void               |
+| + viewProducts(): void                    |
+| + purchaseProduct(Scanner): void          |
+| + sellProduct(Scanner): void              |
++-------------------------------------------+
