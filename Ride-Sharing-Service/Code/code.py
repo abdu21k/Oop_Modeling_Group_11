@@ -1,168 +1,179 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
-// Vehicle class
+// Driver Class
+class Driver {
+    private int driverId;
+    private String name, phoneNumber, licenseNumber, currentLocation;
+    private double rating;
+    private boolean availability;
+
+    public Driver(int driverId, String name, String phoneNumber, String licenseNumber, double rating, boolean availability, String currentLocation) {
+        this.driverId = driverId;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.licenseNumber = licenseNumber;
+        this.rating = rating;
+        this.availability = availability;
+        this.currentLocation = currentLocation;
+    }
+
+    public int getDriverId() { return driverId; }
+    public String getName() { return name; }
+    public String getPhoneNumber() { return phoneNumber; }
+    public String getLicenseNumber() { return licenseNumber; }
+    public double getRating() { return rating; }
+    public boolean isAvailable() { return availability; }
+    public void updateLocation(String location) { this.currentLocation = location; }
+}
+
+// Passenger Class
+class Passenger {
+    private int passengerId;
+    private String name, phoneNumber, paymentMethod;
+    private double rating;
+
+    public Passenger(int passengerId, String name, String phoneNumber, String paymentMethod, double rating) {
+        this.passengerId = passengerId;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.paymentMethod = paymentMethod;
+        this.rating = rating;
+    }
+
+    public int getPassengerId() { return passengerId; }
+    public String getName() { return name; }
+    public String getPhoneNumber() { return phoneNumber; }
+    public String getPaymentMethod() { return paymentMethod; }
+    public double getRating() { return rating; }
+}
+
+// Vehicle Class
 class Vehicle {
-    private String vehicleID, brand, model, category;
-    private boolean isAvailable;
-    private String serviceExpiryDate;
+    private int vehicleId;
+    private String licensePlate, brand, model, color, status;
+    private int seatingCapacity;
 
-    public Vehicle(String vehicleID, String brand, String model, String category, String serviceExpiryDate) {
-        this.vehicleID = vehicleID;
+    public Vehicle(int vehicleId, String licensePlate, String brand, String model, String color, int seatingCapacity, String status) {
+        this.vehicleId = vehicleId;
+        this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
-        this.category = category;
-        this.isAvailable = true;
-        this.serviceExpiryDate = serviceExpiryDate;
+        this.color = color;
+        this.seatingCapacity = seatingCapacity;
+        this.status = status;
     }
 
-    public void showInfo() {
-        System.out.println("Vehicle ID: " + vehicleID + ", Brand: " + brand + ", Model: " + model + ", Category: " + category + ", Available: " + isAvailable);
-    }
-
-    public boolean isAvailable() { return isAvailable; }
-    public void setAvailability(boolean status) { isAvailable = status; }
-    public String getCategory() { return category; }
-    public String getServiceExpiryDate() { return serviceExpiryDate; }
+    public int getVehicleId() { return vehicleId; }
+    public String getLicensePlate() { return licensePlate; }
+    public String getBrand() { return brand; }
+    public String getModel() { return model; }
+    public String getColor() { return color; }
+    public int getSeatingCapacity() { return seatingCapacity; }
+    public String getStatus() { return status; }
+    public void setAvailability(String status) { this.status = status; }
 }
 
-// Customer class
-class Customer {
-    private String customerID, name, licenseNumber, phoneNumber;
+// Ride Class
+class Ride {
+    private int rideId, driverId, passengerId;
+    private String pickupLocation, dropoffLocation, status;
+    private double distance, fare;
 
-    public Customer(String customerID, String name, String licenseNumber, String phoneNumber) {
-        this.customerID = customerID;
-        this.name = name;
-        this.licenseNumber = licenseNumber;
-        this.phoneNumber = phoneNumber;
+    public Ride(int rideId, int driverId, int passengerId, String pickupLocation, String dropoffLocation, double distance, double fare, String status) {
+        this.rideId = rideId;
+        this.driverId = driverId;
+        this.passengerId = passengerId;
+        this.pickupLocation = pickupLocation;
+        this.dropoffLocation = dropoffLocation;
+        this.distance = distance;
+        this.fare = fare;
+        this.status = status;
     }
 
-    public void viewCustomerInfo() {
-        System.out.println("Customer ID: " + customerID + ", Name: " + name + ", License: " + licenseNumber + ", Phone: " + phoneNumber);
-    }
+    public int getRideId() { return rideId; }
+    public int getDriverId() { return driverId; }
+    public int getPassengerId() { return passengerId; }
+    public String getPickupLocation() { return pickupLocation; }
+    public String getDropoffLocation() { return dropoffLocation; }
+    public double getDistance() { return distance; }
+    public double getFare() { return fare; }
+    public String getStatus() { return status; }
+    public void updateRideStatus(String status) { this.status = status; }
 }
 
-// Rental class
-class Rental {
-    private String rentalID;
-    private Vehicle vehicle;
-    private Customer customer;
-    private String startDate, endDate;
-    private boolean isPaid;
-
-    public Rental(String rentalID, Vehicle vehicle, Customer customer, String startDate, String endDate) {
-        this.rentalID = rentalID;
-        this.vehicle = vehicle;
-        this.customer = customer;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.isPaid = false;
-    }
-
-    public void showRentalInfo() {
-        System.out.println("Rental ID: " + rentalID + ", Vehicle: " + vehicle.getCategory() + ", Customer: " + customer + ", Start: " + startDate + ", End: " + endDate + ", Paid: " + isPaid);
-    }
-
-    public void markAsPaid() { isPaid = true; }
-}
-
-// Payment class
+// Payment Class
 class Payment {
-    private String paymentID;
+    private int paymentId, rideId, passengerId;
     private double amount;
-    private boolean isSuccessful;
+    private String paymentMethod, status;
 
-    public Payment(String paymentID, double amount) {
-        this.paymentID = paymentID;
+    public Payment(int paymentId, int rideId, int passengerId, double amount, String paymentMethod, String status) {
+        this.paymentId = paymentId;
+        this.rideId = rideId;
+        this.passengerId = passengerId;
         this.amount = amount;
-        this.isSuccessful = false;
+        this.paymentMethod = paymentMethod;
+        this.status = status;
     }
 
-    public void processPayment() {
-        System.out.println("Processing payment of $" + amount);
-        isSuccessful = true;
-    }
-
-    public void showPaymentStatus() {
-        System.out.println("Payment ID: " + paymentID + ", Amount: $" + amount + ", Successful: " + isSuccessful);
-    }
+    public int getPaymentId() { return paymentId; }
+    public int getRideId() { return rideId; }
+    public int getPassengerId() { return passengerId; }
+    public double getAmount() { return amount; }
+    public String getPaymentMethod() { return paymentMethod; }
+    public String getStatus() { return status; }
+    public boolean processPayment() { return status.equals("Paid"); }
 }
 
-// ServiceChecker class
-class ServiceChecker {
-    public static boolean isServiceExpired(Vehicle vehicle) {
-        return vehicle.getServiceExpiryDate().compareTo("2025-06-01") < 0;
+// Feedback Class
+class Feedback {
+    private int feedbackId, userId, rideId;
+    private double rating;
+    private String comments;
+
+    public Feedback(int feedbackId, int userId, int rideId, double rating, String comments) {
+        this.feedbackId = feedbackId;
+        this.userId = userId;
+        this.rideId = rideId;
+        this.rating = rating;
+        this.comments = comments;
     }
+
+    public int getFeedbackId() { return feedbackId; }
+    public int getUserId() { return userId; }
+    public int getRideId() { return rideId; }
+    public double getRating() { return rating; }
+    public String getComments() { return comments; }
+    public void submitFeedback() { System.out.println("Feedback submitted successfully."); }
 }
 
-// GPS class
-class GPS {
-    private String vehicleID;
-    private double latitude, longitude;
+// Main System
+public class RideSharingSystem {
+    private static ArrayList<Driver> drivers = new ArrayList<>();
+    private static ArrayList<Passenger> passengers = new ArrayList<>();
+    private static ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private static ArrayList<Ride> rides = new ArrayList<>();
+    private static ArrayList<Payment> payments = new ArrayList<>();
+    private static ArrayList<Feedback> feedbacks = new ArrayList<>();
 
-    public GPS(String vehicleID, double latitude, double longitude) {
-        this.vehicleID = vehicleID;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    public void showLocation() {
-        System.out.println("Vehicle ID: " + vehicleID + ", Location: (" + latitude + ", " + longitude + ")");
-    }
-}
-
-// VehicleManager class
-class VehicleManager {
-    private ArrayList<Vehicle> vehicleList = new ArrayList<>();
-
-    public void addVehicle(Vehicle vehicle) { vehicleList.add(vehicle); }
-    
-    public Vehicle findByCategory(String category) {
-        for (Vehicle v : vehicleList) {
-            if (v.getCategory().equals(category) && v.isAvailable()) {
-                return v;
-            }
-        }
-        return null;
-    }
-}
-
-// CustomerManager class
-class CustomerManager {
-    private ArrayList<Customer> customerList = new ArrayList<>();
-
-    public void addCustomer(Customer customer) { customerList.add(customer); }
-}
-
-// RentalManager class
-class RentalManager {
-    private ArrayList<Rental> rentalList = new ArrayList<>();
-
-    public void bookVehicle(String rentalID, Vehicle vehicle, Customer customer, String startDate, String endDate) {
-        Rental rental = new Rental(rentalID, vehicle, customer, startDate, endDate);
-        rentalList.add(rental);
-        vehicle.setAvailability(false);
-    }
-
-    public void listRentals() {
-        for (Rental rental : rentalList) {
-            rental.showRentalInfo();
-        }
-    }
-}
-
-// MainSystem class
-public class MainSystem {
     public static void main(String[] args) {
-        VehicleManager vehicleManager = new VehicleManager();
-        CustomerManager customerManager = new CustomerManager();
-        RentalManager rentalManager = new RentalManager();
+        // Sample Data
+        drivers.add(new Driver(1, "John Doe", "1234567890", "DL1234", 4.8, true, "City Center"));
+        passengers.add(new Passenger(1, "Alice Smith", "0987654321", "Card", 4.9));
+        vehicles.add(new Vehicle(1, "ABC-123", "Toyota", "Corolla", "Blue", 4, "Active"));
+        
+        // Testing Ride Booking
+        Ride ride = new Ride(1, 1, 1, "Airport", "Downtown", 15.5, 25.0, "Completed");
+        rides.add(ride);
 
-        vehicleManager.addVehicle(new Vehicle("V001", "Toyota", "Corolla", "Sedan", "2025-06-30"));
-        Customer customer = new Customer("C001", "Abdulkerim", "DL12345", "0987654321");
+        Payment payment = new Payment(1, 1, 1, 25.0, "Card", "Paid");
+        payments.add(payment);
 
-        System.out.println("Welcome to Ride-Sharing Service!");
-        rentalManager.bookVehicle("R001", vehicleManager.findByCategory("Sedan"), customer, "2025-06-02", "2025-06-05");
-        rentalManager.listRentals();
+        Feedback feedback = new Feedback(1, 1, 1, 5.0, "Great ride!");
+        feedbacks.add(feedback);
+
+        feedback.submitFeedback();
+
+        System.out.println("Ride-Sharing System is Fully Functional!");
     }
 }
