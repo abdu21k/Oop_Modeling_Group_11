@@ -1,14 +1,14 @@
-?? Challenges Faced in Developing the Vehicle Rental System
+Challenges Faced in Developing the Vehicle Rental System
 Developing the Vehicle Rental System came with multiple challenges, especially as a beginner navigating both technical tools and project structuring principles. Below is a detailed explanation of the key challenges faced during development.
 
 1, Learning GitHub from Scratch
 One of the most difficult challenges was understanding how to use GitHub, as there was no prior experience with version control systems.
 ?Initially, GitHub seemed complex and overwhelming, requiring multiple steps to upload files, create repositories, and track changes.
 ?Watching YouTube tutorials helped gain an understanding, but applying Git commands correctly and managing branches took time.
-?The workflow confusion—whether to commit, push, or pull—made managing progress difficult.
+?The workflow confusionâ€”whether to commit, push, or pullâ€”made managing progress difficult.
 Despite these difficulties, using GitHub became easier over time, allowing better organization and collaboration. While some concepts like pull requests and merging still required additional learning, the basic functionality was successfully applied.
 
-2?? Structuring a Real-World Project
+2 Structuring a Real-World Project
 Another major challenge was organizing a full system beyond basic Java concepts.
 ?Understanding how different classes should interact (Vehicle, Customer, Rental, and MainSystem) was tricky.
 ?Combining different components into a cohesive system required following step-by-step rules from the instructor.
@@ -16,16 +16,16 @@ Another major challenge was organizing a full system beyond basic Java concepts.
 ?Developing a logical flow of execution (user interaction ? data storage ? retrieval) was difficult without clear planning.
 Over time, structuring improved by following UML diagrams and adjusting the code through iteration, resulting in a well-organized system.
 
-3?? Difficulty Implementing GPS Tracking
+3 Difficulty Implementing GPS Tracking
 The GPS tracking feature was one of the biggest obstacles due to hardware limitations.
 ?The project required real-time GPS data, but accessing hardware like GPS modules or APIs wasn't feasible.
 ?Without proper hardware, implementing location tracking became technically impractical within the Java-based system.
-?Alternative solutions like mock data simulation were considered, but they didn’t fully meet the project requirements.
+?Alternative solutions like mock data simulation were considered, but they didnâ€™t fully meet the project requirements.
 This feature remains an unresolved challenge, but could be implemented in the future with external APIs or physical GPS modules.
 
-4?? Structuring Code for Readability
+4 Structuring Code for Readability
 Ensuring clean and readable code was another difficulty, especially in formatting and organizing logic.
-?Writing long functions made debugging harder, requiring code splitting into smaller, structured methods.
+Writing long functions made debugging harder, requiring code splitting into smaller, structured methods.
 ?Keeping proper indentation and naming conventions took extra effort.
 ?Understanding stream filtering and organizing data retrieval methods correctly was confusing at first.
 By refining the code iteratively, following beginner-friendly naming conventions, and ensuring proper structuring, the final version became more readable and functional.
