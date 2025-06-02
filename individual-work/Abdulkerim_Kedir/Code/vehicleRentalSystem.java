@@ -1,9 +1,51 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-// Vehicle class
+// Abstract Class: Person
+abstract class Person {
+    private String name, phoneNumber;
+
+    public Person(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getName() { return name; }
+    public String getPhoneNumber() { return phoneNumber; }
+
+    public abstract void displayDetails();
+}
+
+// Interface for Rental Services
+interface RentalService {
+    void processRental();
+}
+
+// Interface for Billing System
+interface BillingSystem {
+    void generateInvoice();
+}
+
+// Customer Class (Inherits Person)
+class Customer extends Person {
+    private String customerId;
+
+    public Customer(String customerId, String name, String phoneNumber) {
+        super(name, phoneNumber);
+        this.customerId = customerId;
+    }
+
+    public String getCustomerId() { return customerId; }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("Customer ID: " + customerId + " | Name: " + getName() + " | Phone: " + getPhoneNumber());
+    }
+}
+
+// Vehicle Class
 class Vehicle {
-    private String vehicleId;
-    private String model;
+    private String vehicleId, model;
     private boolean isAvailable;
 
     public Vehicle(String vehicleId, String model) {
@@ -12,50 +54,18 @@ class Vehicle {
         this.isAvailable = true;
     }
 
-    public String getVehicleId() {
-        return vehicleId;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void toggleAvailability() {
-        isAvailable = !isAvailable;
-    }
+    public String getVehicleId() { return vehicleId; }
+    public String getModel() { return model; }
+    public boolean isAvailable() { return isAvailable; }
+    public void toggleAvailability() { isAvailable = !isAvailable; }
 
     public void displayInfo() {
-        System.out.println("Vehicle ID: " + vehicleId + ", Model: " + model + ", Available: " + isAvailable);
+        System.out.println("Vehicle ID: " + vehicleId + " | Model: " + model + " | Available: " + isAvailable);
     }
 }
 
-// Customer class
-class Customer {
-    private String customerId;
-    private String name;
-    private String phone;
-
-    public Customer(String customerId, String name, String phone) {
-        this.customerId = customerId;
-        this.name = name;
-        this.phone = phone;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void displayDetails() {
-        System.out.println("Customer ID: " + customerId + ", Name: " + name + ", Phone: " + phone);
-    }
-}
-
-// Rental class
-class Rental {
+// Rental Class (Implements RentalService & BillingSystem)
+class Rental implements RentalService, BillingSystem {
     private String rentalId;
     private Vehicle vehicle;
     private Customer customer;
@@ -70,22 +80,25 @@ class Rental {
         this.vehicle.toggleAvailability();
     }
 
-    public double calculateCost() {
-        return days * ratePerDay;
+    @Override
+    public void processRental() {
+        System.out.println("\nProcessing rental for customer: " + customer.getName());
     }
 
-    public void printReceipt() {
-        System.out.println("\n----- Rental Receipt -----");
+    @Override
+    public void generateInvoice() {
+        System.out.println("\n----- Rental Invoice -----");
         System.out.println("Rental ID: " + rentalId);
         customer.displayDetails();
         vehicle.displayInfo();
         System.out.println("Days Rented: " + days);
         System.out.println("Total Cost: $" + calculateCost());
     }
+
+    private double calculateCost() { return days * ratePerDay; }
 }
 
-
-
+// Main System
 public class VehicleRentalSystem {
     static Scanner input = new Scanner(System.in);
     static ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -93,23 +106,21 @@ public class VehicleRentalSystem {
     static ArrayList<Rental> rentals = new ArrayList<>();
 
     public static void main(String[] args) {
+        // Sample Data
         vehicles.add(new Vehicle("V001", "Toyota Corolla"));
         vehicles.add(new Vehicle("V002", "Honda Civic"));
-        vehicles.add(new Vehicle("V003", "Hyundai Elantra"));
-
         customers.add(new Customer("C001", "Ali", "0912345678"));
-        customers.add(new Customer("C002", "Sara", "0923456789"));
 
         int choice;
         do {
             System.out.println("\n=== Vehicle Rental System ===");
-            System.out.println("1. View All Vehicles");
-            System.out.println("2. View All Customers");
-            System.out.println("3. Register New Customer");
+            System.out.println("1. View Vehicles");
+            System.out.println("2. View Customers");
+            System.out.println("3. Register Customer");
             System.out.println("4. Rent a Vehicle");
-            System.out.println("5. View All Rentals");
+            System.out.println("5. View Rentals");
             System.out.println("0. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.print("Enter choice: ");
             choice = input.nextInt();
 
             switch (choice) {
@@ -119,31 +130,27 @@ public class VehicleRentalSystem {
                 case 4 -> rentVehicle();
                 case 5 -> viewRentals();
                 case 0 -> System.out.println("Exiting... Goodbye!");
-                default -> System.out.println("Invalid choice. Try again.");
+                default -> System.out.println("Invalid choice, try again.");
             }
         } while (choice != 0);
     }
 
     static void viewVehicles() {
-        System.out.println("\n--- List of Vehicles ---");
-        for (Vehicle v : vehicles) {
-            v.displayInfo();
-        }
+        System.out.println("\n--- Available Vehicles ---");
+        for (Vehicle v : vehicles) v.displayInfo();
     }
 
     static void viewCustomers() {
-        System.out.println("\n--- List of Customers ---");
-        for (Customer c : customers) {
-            c.displayDetails();
-        }
+        System.out.println("\n--- Registered Customers ---");
+        for (Customer c : customers) c.displayDetails();
     }
 
     static void registerCustomer() {
-        System.out.print("Enter new customer ID: ");
+        System.out.print("Enter Customer ID: ");
         String id = input.next();
-        System.out.print("Enter name: ");
+        System.out.print("Enter Name: ");
         String name = input.next();
-        System.out.print("Enter phone number: ");
+        System.out.print("Enter Phone: ");
         String phone = input.next();
         customers.add(new Customer(id, name, phone));
         System.out.println("Customer registered successfully!");
@@ -153,50 +160,28 @@ public class VehicleRentalSystem {
         System.out.print("Enter Customer ID: ");
         String custId = input.next();
         Customer foundCustomer = null;
-        for (Customer c : customers) {
-            if (c.getCustomerId().equalsIgnoreCase(custId)) {
-                foundCustomer = c;
-                break;
-            }
-        }
-        if (foundCustomer == null) {
-            System.out.println("Customer not found.");
-            return;
-        }
+        for (Customer c : customers) if (c.getCustomerId().equalsIgnoreCase(custId)) foundCustomer = c;
+        if (foundCustomer == null) { System.out.println("Customer not found."); return; }
 
         System.out.print("Enter Vehicle ID: ");
         String vehId = input.next();
         Vehicle foundVehicle = null;
-        for (Vehicle v : vehicles) {
-            if (v.getVehicleId().equalsIgnoreCase(vehId) && v.isAvailable()) {
-                foundVehicle = v;
-                break;
-            }
-        }
-        if (foundVehicle == null) {
-            System.out.println("Vehicle not found or not available.");
-            return;
-        }
+        for (Vehicle v : vehicles) if (v.getVehicleId().equalsIgnoreCase(vehId) && v.isAvailable()) foundVehicle = v;
+        if (foundVehicle == null) { System.out.println("Vehicle not found or unavailable."); return; }
 
-        System.out.print("Enter number of days to rent: ");
+        System.out.print("Enter number of rental days: ");
         int days = input.nextInt();
         String rentalId = "R" + (rentals.size() + 1);
 
         Rental rental = new Rental(rentalId, foundVehicle, foundCustomer, days);
         rentals.add(rental);
-        System.out.println("\nRental Successful! Receipt:");
-        rental.printReceipt();
+        rental.processRental();
+        rental.generateInvoice();
     }
 
     static void viewRentals() {
-        if (rentals.isEmpty()) {
-            System.out.println("\nNo rentals yet.");
-            return;
-        }
-        System.out.println("\n--- All Rentals ---");
-        for (Rental r : rentals) {
-            r.printReceipt();
-            System.out.println("---------------------------");
-        }
+        if (rentals.isEmpty()) { System.out.println("\nNo rentals yet."); return; }
+        System.out.println("\n--- Rental History ---");
+        for (Rental r : rentals) r.generateInvoice();
     }
 }
