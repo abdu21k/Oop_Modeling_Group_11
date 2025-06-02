@@ -1,0 +1,26 @@
+# Initial Attribute and Method TablesAdd commentMore actions
+
+## Class: Product - Attributes
+
+| Attribute Name | Type   | Visibility | Rationale                              |
+|----------------|--------|------------|----------------------------------------|
+| id             | int    | private    | Unique identifier for each product     |
+| name           | String | private    | Stores the name of the product         |
+| quantity       | int    | private    | Tracks available stock                 |
+
+## Class: Product - Methods
+
+| Method Name                | Return Type | Visibility | Rationale                                        |
+|---------------------------|-------------|------------|--------------------------------------------------|
+| Product(int, String, int) | Constructor | public     | Initializes product with ID, name, and quantity  |
+| toString()                | String      | public     | Returns product details in readable format       |
+
+## Class: InventoryManagementSystem - Methods
+
+| Method Name              | Return Type | Visibility | Rationale                                           |
+|--------------------------|-------------|------------|-----------------------------------------------------|
+| main(String[] args)      | void        | public     | Entry point of the program                          |
+| addProduct(Scanner)      | void        | public     | Adds a new product to the list                      |
+| viewProducts()           | void        | public     | Displays all products in the list                   |
+| purchaseProduct(Scanner) | void        | public     | Increases stock for a selected product              |
+| sellProduct(Scanner)     | void        | public     | Decreases stock for a selected product (if valid)   |
