@@ -1,7 +1,7 @@
 # Domain_4_Solution.md
 
 ## Title:
-Console-Based Inventory Management System in Java
+ Inventory Management System in Java
 
 ## Objective:
 To design and implement a simple, yet effective inventory management system that accurately tracks inventory transactions and stock levels across multiple locations using a Java-based console application.
@@ -20,9 +20,7 @@ Create a clear structure for the following inventory transactions:
 
 ### 2. Create Data Models (Java Classes)
 - **Product**: Stores product ID, name, category, and unit price.
-- **Location**: Represents storage places (e.g., Warehouse A, Store B).
 - **InventoryTransaction**: Holds transaction details (type, date, quantity, source/destination, reason).
-- **StockLevel**: Tracks current stock quantities per product per location.
 
 ### 3. Develop Core Functionalities
 - `recordPurchaseOrder(productId, quantity)`: Adds items to stock.
