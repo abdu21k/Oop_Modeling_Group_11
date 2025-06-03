@@ -17,24 +17,24 @@ abstract class SmartDevice {
         this.connectionState = true;
     }
 
-    public void turnOn() { status = true; System.out.println(deviceName + " is ON."); }
-    public void turnOff() { status = false; System.out.println(deviceName + " is OFF."); }
-    public String getStatus() { return deviceName + " Status: " + (status ? "ON" : "OFF"); }
-}
-
-// SmartLight Class
-class SmartLight extends SmartDevice {
-    private int brightness;
-    private String colorMode;
-
-    public SmartLight(int deviceId, String name, String location) {
-        super(deviceId, name, location);
-        this.brightness = 50;
-        this.colorMode = "Warm";
+    public void turnOn() {
+        status = true;
+        System.out.println(deviceName + " is now ON.");
     }
 
-    public void setBrightness(int level) { this.brightness = level; }
-    public void setColorMode(String mode) { this.colorMode = mode; }
+    public void turnOff() {
+        status = false;
+        System.out.println(deviceName + " is now OFF.");
+    }
+
+    public String getStatus() {
+        return deviceName + " Status: " + (status ? "ON" : "OFF");
+    }
+
+    @Override
+    public String toString() {
+        return deviceName + " in " + location + " | Status: " + (status ? "ON" : "OFF");
+    }
 }
 
 // SmartThermostat Class
@@ -50,23 +50,30 @@ class SmartThermostat extends SmartDevice {
         this.mode = "Auto";
     }
 
-    public void setTargetTemperature(double temp) { this.targetTemperature = temp; }
-    public void setMode(String mode) { this.mode = mode; }
-}
-
-// SmartDoor Class
-class SmartDoor extends SmartDevice {
-    private boolean isLocked;
-    private List<String> accessLogs;
-
-    public SmartDoor(int deviceId, String name, String location) {
-        super(deviceId, name, location);
-        this.isLocked = true;
-        this.accessLogs = new ArrayList<>();
+    public void setTargetTemperature(double temp) {
+        if (temp < 10 || temp > 35) {
+            System.out.println("Invalid temperature! Must be between 10°C and 35°C.");
+            return;
+        }
+        this.targetTemperature = temp;
+        if (!status) turnOn();
+        System.out.println(deviceName + " target temperature set to " + temp + "°C.");
     }
 
-    public void lockDoor() { isLocked = true; }
-    public void unlockDoor() { isLocked = false; accessLogs.add("Unlocked at " + System.currentTimeMillis()); }
+    public void setMode(String mode) {
+        this.mode = mode;
+        if (!status) turnOn();
+        System.out.println(deviceName + " mode set to " + mode + ".");
+    }
+
+    public String getTemperatureStatus() {
+        return deviceName + " Current: " + currentTemperature + "°C | Target: " + targetTemperature + "°C | Mode: " + mode;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Mode: " + mode + " | Temp: " + targetTemperature + "°C";
+    }
 }
 
 // SmartSensor Class
@@ -81,21 +88,24 @@ class SmartSensor extends SmartDevice {
         this.alertStatus = false;
     }
 
-    public void detectValue(double value) { this.detectedValue = value; this.alertStatus = value > 50; }
-}
+    public void detectValue(double value) {
+        if (value < 0 || value > 1000) {
+            System.out.println("Invalid sensor value! Must be between 0 and 1000.");
+            return;
+        }
+        this.detectedValue = value;
+        this.alertStatus = value > 50;
+        if (!status) turnOn();
+        System.out.println(deviceName + " detected value: " + value + " (" + sensorType + ")");
+    }
 
-// AutomationRule Class
-class AutomationRule {
-    private int ruleId;
-    private String triggerEvent;
-    private String action;
-    private String scheduleTime;
+    public String getAlertStatus() {
+        return deviceName + " Alert: " + (alertStatus ? "⚠️ Triggered!" : "Normal");
+    }
 
-    public AutomationRule(int ruleId, String triggerEvent, String action, String scheduleTime) {
-        this.ruleId = ruleId;
-        this.triggerEvent = triggerEvent;
-        this.action = action;
-        this.scheduleTime = scheduleTime;
+    @Override
+    public String toString() {
+        return super.toString() + " | Type: " + sensorType + " | Value: " + detectedValue;
     }
 }
 
@@ -115,25 +125,17 @@ class HomeOwner {
         this.registeredDevices = new ArrayList<>();
     }
 
-    public void addDevice(SmartDevice device) { registeredDevices.add(device); }
-    public void listDevices() {
-        System.out.println("Devices Controlled by " + name + ":");
-        for (SmartDevice device : registeredDevices) {
-            System.out.println("- " + device.getStatus());
-        }
+    public void addDevice(SmartDevice device) {
+        registeredDevices.add(device);
+        System.out.println("Added device: " + device.deviceName);
     }
-}
 
-// System Settings Class
-class SmartHomeSettings {
-    private String wifiSSID;
-    private String securityMode;
-    private boolean energySaver;
-
-    public SmartHomeSettings(String wifiSSID, String securityMode, boolean energySaver) {
-        this.wifiSSID = wifiSSID;
-        this.securityMode = securityMode;
-        this.energySaver = energySaver;
+    public void listDevices() {
+        System.out.println("\n📋 Devices Controlled by " + name + ":");
+        for (SmartDevice device : registeredDevices) {
+            System.out.println("- " + device);
+        }
+        System.out.println();
     }
 }
 
@@ -142,21 +144,21 @@ public class SmartHomeSystem {
     public static void main(String[] args) {
         HomeOwner user = new HomeOwner(1, "Alex", "alex@email.com", "123 Smart St");
 
-        SmartLight light = new SmartLight(101, "Living Room Light", "Living Room");
         SmartThermostat thermostat = new SmartThermostat(102, "Bedroom Thermostat", "Bedroom");
-        SmartDoor door = new SmartDoor(103, "Front Door", "Entrance");
         SmartSensor sensor = new SmartSensor(104, "Motion Sensor", "Hallway", "Motion");
 
-        user.addDevice(light);
         user.addDevice(thermostat);
-        user.addDevice(door);
         user.addDevice(sensor);
 
         user.listDevices();
-        light.turnOn();
+
         thermostat.setTargetTemperature(24.5);
-        door.unlockDoor();
+        thermostat.setMode("Cooling");
+
         sensor.detectValue(60.0);
+
+        System.out.println(sensor.getAlertStatus());
+        System.out.println(thermostat.getTemperatureStatus());
 
         user.listDevices();
     }
