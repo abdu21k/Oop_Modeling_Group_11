@@ -12,7 +12,7 @@ abstract class Person {
     public String getName() { return name; }
     public String getPhoneNumber() { return phoneNumber; }
 
-    public abstract void displayDetails();
+    public abstract void displayDetails(); //abstract method
 }
 
 // Interface for Transport Services
