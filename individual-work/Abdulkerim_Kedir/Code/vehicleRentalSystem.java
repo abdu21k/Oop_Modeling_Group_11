@@ -27,7 +27,7 @@ interface BillingSystem {
 }
 
 // Customer Class (Inherits Person)
-class Customer extends Person {
+class Customer extends Person {  //Inheritance 
     private String customerId;
 
     public Customer(String customerId, String name, String phoneNumber) {
